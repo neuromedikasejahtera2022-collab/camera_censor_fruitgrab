@@ -1,0 +1,6 @@
+{
+  "name": "Fruit Catcher Duo",
+  "description": "2-Player interactive camera body-motion arcade game to catch falling fruits",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
