@@ -1,0 +1,31 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- LinkedIn Blue Background (Circle / Rounded for game bubble) -->
+    <path
+        android:pathData="M 48,48 m -44,0 a 44,44 0 1,0 88,0 a 44,44 0 1,0 -88,0"
+        android:fillColor="#0A66C2" />
+
+    <!-- Outer golden aura ring because it's Golden Fruit 500! -->
+    <path
+        android:pathData="M 48,48 m -43,0 a 43,43 0 1,0 86,0 a 43,43 0 1,0 -86,0"
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2.5" />
+
+    <!-- LinkedIn White 'i' Dot -->
+    <path
+        android:pathData="M 33,26.5 A 5.5,5.5 0 1,0 33,37.5 A 5.5,5.5 0 1,0 33,26.5 Z"
+        android:fillColor="#FFFFFF" />
+
+    <!-- LinkedIn White 'i' Stem -->
+    <path
+        android:pathData="M 28,42 L 38,42 L 38,72 L 28,72 Z"
+        android:fillColor="#FFFFFF" />
+
+    <!-- LinkedIn White 'n' -->
+    <path
+        android:pathData="M 44,42 L 53.5,42 L 53.5,46.5 C 55,43.5 59.5,41 65,41 C 74,41 78,46.5 78,56.5 L 78,72 L 68,72 L 68,58 C 68,52.5 66,49.5 62,49.5 C 57.5,49.5 54,53 54,58.5 L 54,72 L 44,72 Z"
+        android:fillColor="#FFFFFF" />
+</vector>

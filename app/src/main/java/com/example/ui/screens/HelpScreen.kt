@@ -1,5 +1,6 @@
 package com.example.ui.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -23,9 +25,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -92,23 +97,23 @@ fun HelpScreen(
             Spacer(modifier = Modifier.height(14.dp))
 
             // Fruit Values Table
-            HelpCard(title = "🍎 FRUITS & POINTS") {
+            HelpCard(title = "🎯 GAME OBJECTS & POINTS") {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
-                    FruitValueItem("🍎", "+100", Color(0xFFFF334B))
-                    FruitValueItem("🍌", "+200", Color(0xFFFFD600))
-                    FruitValueItem("🍊", "+300", Color(0xFFFF8800))
+                    FruitValueItem(FruitType.APPLE_100)
+                    FruitValueItem(FruitType.BANANA_200)
+                    FruitValueItem(FruitType.ORANGE_300)
                 }
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(14.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
-                    FruitValueItem("🍉", "+400", Color(0xFF00E676))
-                    FruitValueItem("⭐", "+500 GOLD", Color(0xFFFFD700))
-                    FruitValueItem("💀", "ZONK!", Color(0xFFBA68C8))
+                    FruitValueItem(FruitType.WATERMELON_400)
+                    FruitValueItem(FruitType.GOLDEN_FRUIT_500)
+                    FruitValueItem(FruitType.ROTTEN_FRUIT_ZONK)
                 }
             }
 
@@ -177,9 +182,42 @@ private fun InstructionStep(stepNumber: Int?, text: String) {
 }
 
 @Composable
-private fun FruitValueItem(emoji: String, points: String, color: Color) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(emoji, fontSize = 28.sp)
-        Text(points, color = color, fontSize = 12.sp, fontWeight = FontWeight.Black)
+private fun FruitValueItem(fruitType: FruitType) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.padding(horizontal = 4.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .size(46.dp)
+                .shadow(4.dp, CircleShape)
+                .clip(CircleShape)
+                .border(
+                    width = if (fruitType.isGolden) 2.5.dp else 1.5.dp,
+                    color = if (fruitType.isGolden) Color(0xFFFFD700) else Color.White.copy(alpha = 0.85f),
+                    shape = CircleShape
+                ),
+            contentAlignment = Alignment.Center
+        ) {
+            Image(
+                painter = painterResource(id = fruitType.drawableRes),
+                contentDescription = fruitType.label,
+                contentScale = ContentScale.Fit,
+                modifier = Modifier.fillMaxSize()
+            )
+        }
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            text = fruitType.label,
+            color = Color.White.copy(alpha = 0.9f),
+            fontSize = 11.sp,
+            fontWeight = FontWeight.SemiBold
+        )
+        Text(
+            text = if (fruitType.points > 0) "+${fruitType.points}" else "${fruitType.points}",
+            color = if (fruitType.isZonk) Color(0xFFFF5252) else if (fruitType.isGolden) Color(0xFFFFD700) else Color(0xFF00E5FF),
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Black
+        )
     }
 }

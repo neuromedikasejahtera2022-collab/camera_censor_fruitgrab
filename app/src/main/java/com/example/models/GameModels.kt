@@ -1,6 +1,8 @@
 package com.example.models
 
+import androidx.annotation.DrawableRes
 import androidx.compose.ui.graphics.Color
+import com.example.R
 import com.example.config.GameConfig
 
 enum class PlayerId(val displayName: String, val primaryColor: Color, val accentColor: Color) {
@@ -29,16 +31,17 @@ enum class FruitType(
     val points: Int,
     val label: String,
     val emoji: String,
+    @DrawableRes val drawableRes: Int,
     val baseColor: Color,
     val isGolden: Boolean = false,
     val isZonk: Boolean = false
 ) {
-    APPLE_100(100, "Apple", "🍎", Color(0xFFFF334B)),
-    BANANA_200(200, "Banana", "🍌", Color(0xFFFFD600)),
-    ORANGE_300(300, "Orange", "🍊", Color(0xFFFF8800)),
-    WATERMELON_400(400, "Melon", "🍉", Color(0xFF00E676)),
-    GOLDEN_FRUIT_500(500, "Golden Fruit", "⭐", Color(0xFFFFD700), isGolden = true),
-    ROTTEN_FRUIT_ZONK(-150, "ZONK!", "💀", Color(0xFF9C27B0), isZonk = true);
+    APPLE_100(100, "Apple", "🍎", R.drawable.item_apple, Color(0xFF080808)),
+    BANANA_200(200, "Banana", "🍌", R.drawable.item_banana, Color(0xFF1877F2)),
+    ORANGE_300(300, "Orange", "🍊", R.drawable.item_orange, Color(0xFF26A5E4)),
+    WATERMELON_400(400, "Melon", "🍉", R.drawable.item_melon, Color(0xFFE60023)),
+    GOLDEN_FRUIT_500(500, "Golden Fruit", "⭐", R.drawable.item_golden, Color(0xFF0A66C2), isGolden = true),
+    ROTTEN_FRUIT_ZONK(-150, "ZONK!", "💀", R.drawable.item_zonk, Color(0xFFFF4500), isZonk = true);
 
     companion object {
         fun selectWeightedRandom(randomValue: Int = (0 until 100).random()): FruitType {

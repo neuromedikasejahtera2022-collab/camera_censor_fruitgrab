@@ -7,10 +7,12 @@ import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -31,6 +33,9 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -76,31 +81,26 @@ fun FruitItem(
             )
         }
 
-        // Fruit body container
+        // Fruit/Item body container rendering the drawable resource
         Box(
             modifier = Modifier
                 .size(fruit.sizeDp.dp)
                 .shadow(6.dp, CircleShape)
                 .clip(CircleShape)
-                .background(
-                    if (fruit.type.isZonk) {
-                        Brush.radialGradient(listOf(Color(0xFFBA68C8), Color(0xFF4A148C)))
-                    } else if (fruit.type.isGolden) {
-                        Brush.radialGradient(listOf(Color(0xFFFFF9C4), Color(0xFFFFD700), Color(0xFFFFA000)))
-                    } else {
-                        Brush.radialGradient(listOf(fruit.type.baseColor.copy(alpha = 0.9f), fruit.type.baseColor))
-                    }
-                )
                 .border(
                     width = if (fruit.type.isGolden) 3.dp else 2.dp,
-                    color = if (fruit.type.isGolden) Color.White else Color.White.copy(alpha = 0.7f),
+                    color = if (fruit.type.isGolden) Color(0xFFFFD700) else Color.White.copy(alpha = 0.85f),
                     shape = CircleShape
                 ),
             contentAlignment = Alignment.Center
         ) {
-            Text(
-                text = fruit.type.emoji,
-                fontSize = (fruit.sizeDp * 0.52f).sp
+            Image(
+                painter = painterResource(id = fruit.type.drawableRes),
+                contentDescription = fruit.type.label,
+                contentScale = ContentScale.Fit,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .testTag("fruit_item_${fruit.type.name.lowercase()}")
             )
         }
     }

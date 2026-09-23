@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Telegram Sky Blue Background -->
+    <path
+        android:pathData="M 48,48 m -44,0 a 44,44 0 1,0 88,0 a 44,44 0 1,0 -88,0"
+        android:fillColor="#26A5E4" />
+
+    <!-- Outer subtle highlight ring -->
+    <path
+        android:pathData="M 48,48 m -43,0 a 43,43 0 1,0 86,0 a 43,43 0 1,0 -86,0"
+        android:strokeColor="#5AC1F3"
+        android:strokeWidth="1.5" />
+
+    <!-- Telegram White Paper Airplane -->
+    <path
+        android:pathData="M 72.8,25.6 L 19.5,46.1 C 15.8,47.6 15.9,49.7 18.9,50.6 L 32.6,54.9 L 64.3,34.9 C 65.8,34 67.2,34.5 66,35.5 L 40.3,58.7 L 39.3,73.8 C 40.8,73.8 41.4,73.1 42.3,72.2 L 49.5,65.2 L 64.5,76.3 C 67.3,77.8 69.3,77.1 70,73.7 L 79.8,27.5 C 80.9,23.3 78.2,21.3 72.8,25.6 Z"
+        android:fillColor="#FFFFFF" />
+
+    <!-- Bottom fold shadow detail -->
+    <path
+        android:pathData="M 40.3,58.7 L 49.5,65.2 L 39.3,73.8 Z"
+        android:fillColor="#D2E8F8" />
+</vector>

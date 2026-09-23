@@ -1,0 +1,62 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Reddit Orange Background -->
+    <path
+        android:pathData="M 48,48 m -44,0 a 44,44 0 1,0 88,0 a 44,44 0 1,0 -88,0"
+        android:fillColor="#FF4500" />
+
+    <!-- Outer subtle highlight ring -->
+    <path
+        android:pathData="M 48,48 m -43,0 a 43,43 0 1,0 86,0 a 43,43 0 1,0 -86,0"
+        android:strokeColor="#FF7744"
+        android:strokeWidth="1.5" />
+
+    <!-- Reddit Snoo Antenna -->
+    <!-- Stem -->
+    <path
+        android:pathData="M 48,34 L 56,22 L 67,25"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3.2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- Tip bulb -->
+    <path
+        android:pathData="M 68.5,25.5 A 4,4 0 1,0 68.5,33.5 A 4,4 0 1,0 68.5,25.5 Z"
+        android:fillColor="#FFFFFF" />
+
+    <!-- Left Ear -->
+    <path
+        android:pathData="M 23,45 A 6.5,6.5 0 1,0 23,58 A 6.5,6.5 0 1,0 23,45 Z"
+        android:fillColor="#FFFFFF" />
+
+    <!-- Right Ear -->
+    <path
+        android:pathData="M 73,45 A 6.5,6.5 0 1,0 73,58 A 6.5,6.5 0 1,0 73,45 Z"
+        android:fillColor="#FFFFFF" />
+
+    <!-- Snoo Head -->
+    <path
+        android:pathData="M 48,33 C 33,33 22,42 22,53 C 22,64 33,73 48,73 C 63,73 74,64 74,53 C 74,42 63,33 48,33 Z"
+        android:fillColor="#FFFFFF" />
+
+    <!-- Left Eye (Orange) -->
+    <path
+        android:pathData="M 38,47 A 4.5,4.5 0 1,0 38,56 A 4.5,4.5 0 1,0 38,47 Z"
+        android:fillColor="#FF4500" />
+
+    <!-- Right Eye (Orange) -->
+    <path
+        android:pathData="M 58,47 A 4.5,4.5 0 1,0 58,56 A 4.5,4.5 0 1,0 58,47 Z"
+        android:fillColor="#FF4500" />
+
+    <!-- Smile (Curved line) -->
+    <path
+        android:pathData="M 39,61 C 43,65 53,65 57,61"
+        android:strokeColor="#FF4500"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round" />
+</vector>
